@@ -22,8 +22,9 @@ public class JdbcDemo {
         Connection myConn = null;
         Statement myStmt = null;
         ResultSet myRs = null;
+        // the ?useSSL=false is to avoid SSL warnings
 
-        String dbUrl = "jdbc:mysql://localhost:3306/demo"; // jdbc:subprotocolo//servidor:puerto/base de datos
+        String dbUrl = "jdbc:mysql://localhost:3306/demo?useSSL=false"; // jdbc:subprotocolo//servidor:puerto/base de datos
         String user = "student";
         String pass = "student";
 
