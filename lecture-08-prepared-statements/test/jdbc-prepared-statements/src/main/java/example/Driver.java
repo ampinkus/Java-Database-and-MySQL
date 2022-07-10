@@ -1,5 +1,16 @@
 package example;
+/*
+A PreparedStatement is a pre-compiled SQL statement. It is a subinterface of Statement.
+Prepared Statement objects have some useful additional features than Statement objects.
+Instead of hard coding queries, PreparedStatement object provides a feature to execute a parameterized query.
 
+Advantages of PreparedStatement:
+When PreparedStatement is created, the SQL query is passed as a parameter.
+This Prepared Statement contains a pre-compiled SQL query, so when the PreparedStatement is executed,
+DBMS can just run the query instead of first compiling it.
+We can use the same PreparedStatement and supply with different parameters at the time of execution.
+An important advantage of PreparedStatements is that they prevent SQL injection attacks.
+ */
 import java.sql.*;
 
 public class Driver {
@@ -14,11 +25,12 @@ public class Driver {
             // 1. Get a connection to database
             myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/demo", "student" , "student");
 
-            // 2. Prepare statement
+            // 2. Prepare statement: myStmt is of class PreparedStatement nd we apply it to the connection
+            // the "?" are the placeholders
             myStmt = myConn.prepareStatement("select * from employees where salary > ? and department=?");
 
             // 3. Set the parameters
-            // the parmeter values are set depending on the data type and position starting from left and moving to right
+            // the parameter values are set depending on the data type and position starting from left and moving to right
             myStmt.setDouble(1, 80000);
             myStmt.setString(2, "Legal");
 
