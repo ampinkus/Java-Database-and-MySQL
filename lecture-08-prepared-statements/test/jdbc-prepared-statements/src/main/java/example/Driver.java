@@ -25,7 +25,7 @@ public class Driver {
             // 1. Get a connection to database
             myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/demo", "student" , "student");
 
-            // 2. Prepare statement: myStmt is of class PreparedStatement nd we apply it to the connection
+            // 2. Prepare statement: myStmt is of class PreparedStatement and we apply it to the connection
             // the "?" are the placeholders
             myStmt = myConn.prepareStatement("select * from employees where salary > ? and department=?");
 

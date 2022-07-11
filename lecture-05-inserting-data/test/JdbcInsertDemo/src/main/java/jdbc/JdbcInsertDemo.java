@@ -22,6 +22,8 @@ public class JdbcInsertDemo {
             // 3. Insert a new employee
             System.out.println("Inserting a new employee to database\n");
 
+            // Executes the SQL statement in this Statement or PreparedStatement object, which must be an SQL Data Manipulation Language (DML) statement,
+            // such as INSERT, UPDATE or DELETE; or an SQL statement that returns nothing, such as a DDL statement.
             int rowsAffected = myStmt.executeUpdate(
                     "insert into employees " +
                             "(last_name, first_name, email, department, salary) " +

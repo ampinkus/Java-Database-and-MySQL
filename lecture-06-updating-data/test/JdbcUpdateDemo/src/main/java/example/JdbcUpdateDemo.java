@@ -47,14 +47,16 @@ public class JdbcUpdateDemo {
     }
 
     private static void displayEmployee(Connection myConn, String firstName, String lastName) throws SQLException {
+        // PreparedStatement is an Interface.  A SQL statement is precompiled and stored in a PreparedStatement object.
+        // This object can then be used to efficiently execute this statement multiple times.
         PreparedStatement myStmt = null;
         ResultSet myRs = null;
 
         try {
-            // Prepare statement we will pass parameters
+            // PrepareStatement we will pass parameters
             // the "?" are placeholders for the variables firstName and lastName of the method displayEmployee()
             myStmt = myConn.prepareStatement("select last_name, first_name, email from employees where last_name=? and first_name=?");
-            myStmt.setString(1, lastName);
+            myStmt.setString(1,lastName);
             myStmt.setString(2, firstName);
 
             // Execute SQL query
