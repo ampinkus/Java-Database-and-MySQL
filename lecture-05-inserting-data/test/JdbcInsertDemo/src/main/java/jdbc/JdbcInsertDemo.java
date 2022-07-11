@@ -1,9 +1,7 @@
 package jdbc;
-
+// inserting a new row (employee) in the database
 import java.sql.*;
-
 public class JdbcInsertDemo {
-
     public static void main(String[] args) throws SQLException {
 
         Connection myConn = null;
